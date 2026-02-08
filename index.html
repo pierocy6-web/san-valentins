@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>San Valentín 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
@@ -11,7 +12,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #ff8c42, #ffb347);
+      background: linear-gradient(135deg, #ff512f, #f09819);
       font-family: Arial, sans-serif;
       text-align: center;
       color: white;
@@ -23,11 +24,12 @@
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,.3);
       max-width: 320px;
+      width: 90%;
     }
 
     h1 {
       font-size: 24px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     p {
@@ -37,14 +39,14 @@
 
     .buttons {
       display: flex;
-      justify-content: center;
-      gap: 20px;
+      justify-content: space-between;
+      gap: 15px;
       position: relative;
-      height: 60px;
     }
 
     button {
-      padding: 10px 20px;
+      flex: 1;
+      padding: 10px 0;
       border: none;
       border-radius: 20px;
       font-size: 16px;
@@ -59,15 +61,24 @@
     #no {
       background: #e74c3c;
       color: white;
-      position: relative;
-      touch-action: none;
+    }
+
+    .tap {
+      margin-top: 15px;
+      font-size: 14px;
+      opacity: 0.9;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="card" id="card">
+  <!-- MÚSICA -->
+  <audio id="bgMusic" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card">
     <h1>¿Quieres ser mi San Valentín? ❤️</h1>
     <p>Quiero que sepas lo especial que eres para mí 🥺</p>
 
@@ -75,30 +86,50 @@
       <button id="yes">Sí 💘</button>
       <button id="no">No ☠️</button>
     </div>
+
+    <div class="tap">💖 Toca la pantalla 💖</div>
   </div>
 
   <script>
+    // MÚSICA (se activa al primer toque)
+    function playMusic() {
+      const music = document.getElementById("bgMusic");
+      if (music.paused) {
+        music.play();
+      }
+    }
+    document.body.addEventListener("click", playMusic, { once: true });
+
+    // BOTÓN NO SE ESCAPA
     const noBtn = document.getElementById("no");
-    const yesBtn = document.getElementById("yes");
-    const card = document.getElementById("card");
 
     function moverNo() {
-      const x = Math.random() * 120 - 60;
-      const y = Math.random() * 80 - 40;
+      const x = Math.random() * 150 - 75;
+      const y = Math.random() * 150 - 75;
       noBtn.style.transform = `translate(${x}px, ${y}px)`;
     }
 
     noBtn.addEventListener("mouseover", moverNo);
+    noBtn.addEventListener("touchstart", moverNo);
 
-    noBtn.addEventListener("touchstart", (e) => {
-      e.preventDefault();
-      moverNo();
-    });
-
-    yesBtn.addEventListener("click", () => {
-      card.innerHTML = `
-        <h1>Sabía que dirías que sí 😍</h1>
-        <p>¿Quieres ir a cenar conmigo el 14? ❤️</p>
+    // BOTÓN SÍ
+    document.getElementById("yes").addEventListener("click", () => {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          background: linear-gradient(135deg, #ff512f, #f09819);
+          color:white;
+          text-align:center;
+          font-family:Arial;
+          padding:20px;">
+          <h1>
+            Sabía que dirías que sí 😍<br><br>
+            ¿Quieres ir a cenar conmigo el 14? ❤️
+          </h1>
+        </div>
       `;
     });
   </script>
