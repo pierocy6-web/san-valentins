@@ -1,15 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>Untitled</title>
-    
-
-  </head>
-    
-  <body>
-  <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -22,7 +11,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #56ab2f, #a8e063);
+      background: linear-gradient(135deg, #ff8c42, #ffb347);
       font-family: Arial, sans-serif;
       text-align: center;
       color: white;
@@ -38,7 +27,7 @@
 
     h1 {
       font-size: 24px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     p {
@@ -49,9 +38,9 @@
     .buttons {
       display: flex;
       justify-content: center;
-      gap: 20px;              /* separación entre botones */
+      gap: 20px;
       position: relative;
-      height: 60px;           /* espacio para que NO se mueva */
+      height: 60px;
     }
 
     button {
@@ -65,13 +54,12 @@
     #yes {
       background: #2ecc71;
       color: white;
-      z-index: 2;
     }
 
     #no {
       background: #e74c3c;
       color: white;
-      position: relative;     /* clave para que esté al lado */
+      position: relative;
       touch-action: none;
     }
   </style>
@@ -79,8 +67,8 @@
 
 <body>
 
-  <div class="card">
-    <h1>¿Quieres ser mi San Valentín? ❤️🦖</h1>
+  <div class="card" id="card">
+    <h1>¿Quieres ser mi San Valentín? ❤️</h1>
     <p>Quiero que sepas lo especial que eres para mí 🥺</p>
 
     <div class="buttons">
@@ -92,6 +80,7 @@
   <script>
     const noBtn = document.getElementById("no");
     const yesBtn = document.getElementById("yes");
+    const card = document.getElementById("card");
 
     function moverNo() {
       const x = Math.random() * 120 - 60;
@@ -99,29 +88,20 @@
       noBtn.style.transform = `translate(${x}px, ${y}px)`;
     }
 
-    // PC
     noBtn.addEventListener("mouseover", moverNo);
 
-    // CELULAR
     noBtn.addEventListener("touchstart", (e) => {
       e.preventDefault();
       moverNo();
     });
 
-    // Botón SÍ
     yesBtn.addEventListener("click", () => {
-      document.body.innerHTML = `
-        <h1>
-          Sabía que dirías que sí jajaja 😍<br><br>
-          ¿Quieres ir a cenar conmigo el 14? ❤️
-        </h1>
+      card.innerHTML = `
+        <h1>Sabía que dirías que sí 😍</h1>
+        <p>¿Quieres ir a cenar conmigo el 14? ❤️</p>
       `;
     });
   </script>
 
 </body>
-</html>
-    
-  </body>
-  
 </html>
