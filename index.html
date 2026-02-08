@@ -39,9 +39,7 @@
 
     .buttons {
       display: flex;
-      justify-content: space-between;
       gap: 15px;
-      position: relative;
     }
 
     button {
@@ -73,9 +71,9 @@
 
 <body>
 
-  <!-- MÚSICA -->
+  <!-- AUDIO (NOMBRE REAL DEL ARCHIVO) -->
   <audio id="bgMusic" loop>
-    <source src="musica.mp3" type="audio/mpeg">
+    <source src="musica.mp3.mpeg" type="audio/mpeg">
   </audio>
 
   <div class="card">
@@ -87,11 +85,11 @@
       <button id="no">No ☠️</button>
     </div>
 
-    <div class="tap">💖 Toca la pantalla 💖</div>
+    <div class="tap">💖 Toca la pantalla para escuchar 💖</div>
   </div>
 
   <script>
-    // MÚSICA (se activa al primer toque)
+    // ACTIVAR MÚSICA AL PRIMER TOQUE
     function playMusic() {
       const music = document.getElementById("bgMusic");
       if (music.paused) {
@@ -100,7 +98,7 @@
     }
     document.body.addEventListener("click", playMusic, { once: true });
 
-    // BOTÓN NO SE ESCAPA
+    // BOTÓN NO SE MUEVE
     const noBtn = document.getElementById("no");
 
     function moverNo() {
