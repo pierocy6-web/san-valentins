@@ -71,9 +71,9 @@
 
 <body>
 
-  <!-- AUDIO (NOMBRE REAL DEL ARCHIVO) -->
+  <!-- MÚSICA MP3 -->
   <audio id="bgMusic" loop>
-    <source src="musica.mp3.mpeg" type="audio/mpeg">
+    <source src="musica.mp3" type="audio/mpeg">
   </audio>
 
   <div class="card">
@@ -98,7 +98,7 @@
     }
     document.body.addEventListener("click", playMusic, { once: true });
 
-    // BOTÓN NO SE MUEVE
+    // BOTÓN NO SE ESCAPA
     const noBtn = document.getElementById("no");
 
     function moverNo() {
