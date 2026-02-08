@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>San Valentín 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #56ab2f, #a8e063);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: white;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.15);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.3);
+      max-width: 320px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;              /* separación entre botones */
+      position: relative;
+      height: 60px;           /* espacio para que NO se mueva */
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background: #2ecc71;
+      color: white;
+      z-index: 2;
+    }
+
+    #no {
+      background: #e74c3c;
+      color: white;
+      position: relative;     /* clave para que esté al lado */
+      touch-action: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>¿Quieres ser mi San Valentín? ❤️🦖</h1>
+    <p>Quiero que sepas lo especial que eres para mí 🥺</p>
+
+    <div class="buttons">
+      <button id="yes">Sí 💘</button>
+      <button id="no">No ☠️</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+
+    function moverNo() {
+      const x = Math.random() * 120 - 60;
+      const y = Math.random() * 80 - 40;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    // PC
+    noBtn.addEventListener("mouseover", moverNo);
+
+    // CELULAR
+    noBtn.addEventListener("touchstart", (e) => {
+      e.preventDefault();
+      moverNo();
+    });
+
+    // Botón SÍ
+    yesBtn.addEventListener("click", () => {
+      document.body.innerHTML = `
+        <h1>
+          Sabía que dirías que sí jajaja 😍<br><br>
+          ¿Quieres ir a cenar conmigo el 14? ❤️
+        </h1>
+      `;
+    });
+  </script>
+
+</body>
+</html>
+    
+  </body>
+  
+</html>
